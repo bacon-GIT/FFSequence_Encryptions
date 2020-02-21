@@ -2,6 +2,7 @@ import fibencrypt
 import sha256
 import random
 import caesar
+import argparse
 
 # Sequence based encryption
 # Not that secure, but generally useful for theory crafting
@@ -12,6 +13,16 @@ import caesar
 #   -Create an actually secure message + key encryptor
 #   -move to either Tkinter or argparse, CLI insecure
 #   -maybe move to different language
+
+# Init parse
+parser = argparse.ArgumentParser(description='Encrypt a string')
+
+parser.add_argument("-S", "--string", help="show program version")
+args = parser.parse_args()
+
+print(sha256.sha256(args.string))
+
+
 
 def main():
     RN = random.randint(0, 54)
@@ -56,5 +67,3 @@ What form of encryption?
             print(caesar.caesar_Enc(5, ustring))
 
 
-if __name__ == "__main__":
-    main()

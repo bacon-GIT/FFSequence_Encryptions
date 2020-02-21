@@ -2,12 +2,8 @@ import hashlib
 
 def sha256(ustring):
 
-    # Variables
-    letters = {
-    }
+    m = hashlib.sha256()
 
-    user_String = hashlib.new('sha256')
-    user_String.update(ustring)
+    m.update(ustring.encode())
 
-    return user_String.hexdigest()
-
+    return m.digest()
