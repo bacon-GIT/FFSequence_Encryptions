@@ -3,7 +3,7 @@ Full File Sequence Encryptions: CLI Version
 My hopes for this project are to improve it to be fully usable in day to day encryption needs.
 At the moment, I am developing it to be a CLI environment, mostly usable for windows and linux.
 
-![The Syntax](/images/tut1.png)
+![The Syntax](/images/forgithub.png)
 
 I expect to have a fully working version within a week, from there it will be fairly simple to
 add the following standards:
