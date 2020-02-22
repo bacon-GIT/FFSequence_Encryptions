@@ -3,6 +3,10 @@ import os.path, os
 import hashlib
 import random
 
+# For random keygen
+# RN = random.randint(0, 54)
+# fib = fibgen(RN)
+
 
 # Generates encryption dictionary
 # Fibencrypt is not secure and is fairly simply a ceasar
@@ -37,7 +41,7 @@ def fibgen(seed):
     return letters
 
 
-def decrypt(fib, key, read_file, output_file):
+def fib_decrypt(fib, key, read_file, output_file):
 
     alphabet = string.ascii_lowercase + string.ascii_uppercase
     decryption = ""
@@ -59,12 +63,11 @@ def decrypt(fib, key, read_file, output_file):
 
     f.close()
 
-
     print(decryption)
     return decryption
 
 
-def encrypt():
+def fib_encrypt(file):
 
     # Fib Generator
     RN = random.randint(0, 51)
@@ -100,10 +103,41 @@ def encrypt():
                         print(char)
                         print(fib)
                         print(fib[char])
-                        #f.write(fib[char] + ".")
                         f.write("")
             except KeyError:
                 pass
 
     print("File encrypted with key: {}".format(RN))
     f.close()
+
+
+
+def caesar_Enc(seed, user_String):
+
+    # Seed that varies the starting point in the alphabet
+    # to set fib sequence to
+    special_alph = [" ", ":", ";", ".", "_", "æ", ",", "&", "-"]
+    alphabet = string.ascii_lowercase + string.ascii_uppercase
+
+    #
+    alphAfterSeed = alphabet[seed:52]
+    alphBeforeSeed = alphabet[0:seed]
+
+    modified_alph = alphAfterSeed+alphBeforeSeed
+    for specialCharacter in special_alph:
+        modified_alph += specialCharacter
+
+    letters = {}
+    # Assigning value to letter
+    i = 0
+    for letter in modified_alph:
+        letters[i] = letter
+        i += 1
+
+    modified_string = ""
+    for char in user_String:
+        #let =
+        modified_string += str(letters[int(char)])
+
+    print(modified_string)
+    return modified_string
